@@ -2724,7 +2724,7 @@
             html += '<h4>🎾 网球能力</h4>';
             if (c.ability) html += `<p><strong>打球类型：</strong>${c.ability}</p>`;
             html += '<div class="radar-row">';
-            const idSuffix = name.replace(/[^a-zA-Z0-9]/g,'');
+            const idSuffix = name.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g,'');
             if (c.physical) html += `<div class="radar-box"><canvas id="radar-phy-${idSuffix}" width="220" height="220"></canvas><div class="label">体能数据</div></div>`;
             if (c.fiveD) html += `<div class="radar-box"><canvas id="radar-five-${idSuffix}" width="220" height="220"></canvas><div class="label">五维数值${c.fiveD_note||''}</div></div>`;
             html += '</div>';
@@ -2783,7 +2783,7 @@
 
         function drawAllRadars() {
             for (const [name, c] of Object.entries(charactersData)) {
-                const idSuffix = name.replace(/[^a-zA-Z0-9]/g,'');
+                const idSuffix = name.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g,'');
                 const canvasPhy = document.getElementById('radar-phy-' + idSuffix);
                 const canvasFive = document.getElementById('radar-five-' + idSuffix);
                 if (canvasPhy && c.physical) {
